@@ -1,0 +1,5 @@
+{% extends app.input.is_ajax_request ? "template_ajax.html.twig":"template.html.twig" %}
+{% block body %}
+<h1>{% block title %}login{% endblock %}</h1>
+    this is the login
+{% endblock body %}

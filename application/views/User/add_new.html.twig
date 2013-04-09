@@ -1,0 +1,49 @@
+{% extends app.input.is_ajax_request ? "template_ajax.html.twig":"template.html.twig" %}
+{% block body %}
+<h1>{% block title %}new_user{% endblock %}</h1>
+form of the new user
+    {{ validation_errors() }}
+    {{ form_open() }}
+<table>
+    <tbody>
+        <tr>
+            <th>{{ form_label('name') }}</th>
+            <td>{{ form_input('name',set_value('name')) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label('last_name') }}</th>
+            <td>{{ form_input('lastName',set_value('lastName')) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label('date_born') }}</th>
+            <td>{{ form_input('dateBorn',set_value('dateBorn')) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label('phone') }}</th>
+            <td>{{ form_input('phone',set_value('phone')) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label('phone_movil') }}</th>
+            <td>{{ form_input('phoneMovil',set_value('phoneMovil')) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label('email') }}</th>
+            <td>{{ form_input('email',set_value('email')) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label('address') }}</th>
+            <td>{{ form_input('address',set_value('address')) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label('code') }}</th>
+            <td>{{ form_input('code',set_value('code')) }}</td>
+        </tr>
+        <tr>
+            <th>{{ form_label('password') }}</th>
+            <td>{{ form_input('password',set_value('password')) }}</td>
+        </tr>
+    </tbody>    
+</table> 
+    {{ form_submit('btnRegister','register') }}
+    {{ form_close() }}
+{% endblock body %}

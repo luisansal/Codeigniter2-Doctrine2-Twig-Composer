@@ -1,0 +1,6 @@
+{
+    "require": {
+        "doctrine/orm": "2.3.x-dev",
+        "twig/twig": "dev-master"
+    }
+}

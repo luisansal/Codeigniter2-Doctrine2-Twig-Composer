@@ -1,0 +1,40 @@
+{% extends app.input.is_ajax_request ? "template_ajax.html.twig":"template.html.twig" %}
+{% block body %}
+<h1>{% block title %}show_user{% endblock %}</h1>
+<table>
+    <tbody>
+        <tr>
+            <th>name</th>
+            <td>{{ user.name }}</td>
+        </tr>
+        <tr>
+            <th>last_name</th>
+            <td>{{ user.lastName }}</td>
+        </tr>
+        <tr>
+            <th>phone</th>
+            <td>{{ user.phone }}</td>
+        </tr>
+        <tr>
+            <th>phone_movil</th>
+            <td>{{ user.phoneMovil }}</td>
+        </tr>
+        <tr>
+            <th>email</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>address</th>
+            <td>{{ user.address }}</td>
+        </tr>
+        <tr>
+            <th>code</th>
+            <td>{{ user.code }}</td>
+        </tr>
+        <tr>
+            <th>password</th>
+            <td>{{ user.password }}</td>
+        </tr>
+    </tbody>    
+</table> 
+{% endblock body %}

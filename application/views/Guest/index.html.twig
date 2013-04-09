@@ -1,0 +1,13 @@
+{% extends app.input.is_ajax_request ? "template_ajax.html.twig":"template.html.twig" %}
+{% block body %}
+<h1>{% block title %}welcome{% endblock %}</h1>
+<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+
+		<p>If you would like to edit this page you'll find it located at:</p>
+		<code>application/views/Guest/index.html.twig</code>
+
+		<p>The corresponding controller for this page is found at:</p>
+		<code>application/controllers/guest.php</code>
+
+		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+{% endblock body %}
