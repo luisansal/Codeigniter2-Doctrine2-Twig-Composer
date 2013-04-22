@@ -1,11 +1,10 @@
-Codeigniter2-Doctrine2-Twig-Composer
-====================================
+# Codeigniter2-Doctrine2-Twig-Composer
 
-REQUIREMENTS:
+## REQUIREMENTS:
 
 php 5.3 or best, Database management (mysql, pgsql, sqlite, oracle, sqlserver), apache2
 
-THE BEST REASONS TO USE THIS:
+## THE BEST REASONS TO USE THIS:
 
 This is a Codeigniter 2.1.3 with Doctrine2 ORM, Twig, and Composer integration.
 I was add two libraries in application/libraries/ called Doctrine.php and Twig.php both libraries are autoloaded in application/autoload;
