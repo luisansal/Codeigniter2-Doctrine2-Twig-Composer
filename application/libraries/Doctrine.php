@@ -8,6 +8,10 @@ use Doctrine\Common\ClassLoader;
 
 class Doctrine {
 
+    /**
+     *
+     * @var EntityManager; 
+     */
     public $em = null;
 
     public function __construct() {
