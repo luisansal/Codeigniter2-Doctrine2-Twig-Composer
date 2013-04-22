@@ -10,10 +10,14 @@ use core\Twig\Core_Twig_Extension;
 
 class Twig {
 
-    protected $twig;
+    /**
+     *
+     * @var Twig_Environment 
+     */
+    public $twig_environment = null;
 
     public function __construct() {
-        $loader = new Twig_Loader_Filesystem(realpath(__DIR__."/../views/"));
+        $loader = new Twig_Loader_Filesystem(APPPATH . "views/");
         $autoReload = false;
         $strictVariables = false;
         switch (ENVIRONMENT) {
@@ -26,17 +30,13 @@ class Twig {
                 $strictVariables = false;
                 break;
         }
-        $this->twig = new Twig_Environment($loader, array(
-            'cache' => realpath(__DIR__."/../cache/twig"),
+        $this->twig_environment = new Twig_Environment($loader, array(
+            'cache' => APPPATH . "cache/twig/",
             'auto_reload' => $autoReload,
             'strict_variables' => $strictVariables
         ));
-        $this->twig->addExtension(new Core_Twig_Extension());
-        $this->twig->addExtension(new Twig_Extension_Debug());
-    }
-
-    public function render($view, array $vars = array(), array $context = array()) {
-        return $this->twig->render($view, $vars);
+        $this->twig_environment->addExtension(new Core_Twig_Extension());
+        $this->twig_environment->addExtension(new Twig_Extension_Debug());
     }
 
 }
