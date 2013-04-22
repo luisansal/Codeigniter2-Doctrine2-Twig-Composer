@@ -13,7 +13,7 @@ class Twig {
     protected $twig;
 
     public function __construct() {
-        $loader = new Twig_Loader_Filesystem(APPPATH . "views/");
+        $loader = new Twig_Loader_Filesystem(realpath(__DIR__."/../views/"));
         $autoReload = false;
         $strictVariables = false;
         switch (ENVIRONMENT) {
@@ -27,7 +27,7 @@ class Twig {
                 break;
         }
         $this->twig = new Twig_Environment($loader, array(
-            'cache' => APPPATH . "cache/twig",
+            'cache' => realpath(__DIR__."/../cache/twig"),
             'auto_reload' => $autoReload,
             'strict_variables' => $strictVariables
         ));
