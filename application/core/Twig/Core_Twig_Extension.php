@@ -56,8 +56,13 @@ class Core_Twig_Extension extends Twig_Extension {
             new \Twig_SimpleFunction('set_radio', array($this, 'set_radio'), array('is_safe' => array('html'))),
             new \Twig_SimpleFunction('set_select', array($this, 'set_select'), array('is_safe' => array('html'))),
             new \Twig_SimpleFunction('set_value', array($this, 'set_value'), array('is_safe' => array('html'))),
-            new \Twig_SimpleFunction('validation_errors', array($this, 'validation_errors'), array('is_safe' => array('html')))
+            new \Twig_SimpleFunction('validation_errors', array($this, 'validation_errors'), array('is_safe' => array('html'))),
+            new \Twig_SimpleFunction('base_url', array($this, 'base_url'), array('is_safe' => array('html')))
         );
+    }
+
+    public function base_url($uri = '') {
+        return $this->CI->config->base_url($uri);
     }
 
     public function elapsed_time($point1 = '', $point2 = '', $decimals = 6) {
@@ -587,7 +592,7 @@ class Core_Twig_Extension extends Twig_Extension {
 
         $form .= '>';
 
-        // Add CSRF field if enabled, but leave it out for GET requests and requests to external websites	
+        // Add CSRF field if enabled, but leave it out for GET requests and requests to external websites    
         if ($this->CI->config->item('csrf_protection') === TRUE AND !(strpos($action, $this->CI->config->base_url()) === FALSE OR strpos($form, 'method="get"'))) {
             $hidden[$this->CI->security->get_csrf_token_name()] = $this->CI->security->get_csrf_hash();
         }
