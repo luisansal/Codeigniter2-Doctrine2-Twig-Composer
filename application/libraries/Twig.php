@@ -35,7 +35,7 @@ class Twig {
         $this->twig->addExtension(new Twig_Extension_Debug());
     }
 
-    public function render($view, array $vars, array $context = null) {
+    public function render($view, array $vars = array(), array $context = array()) {
         return $this->twig->render($view, $vars);
     }
 
