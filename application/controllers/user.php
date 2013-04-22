@@ -11,7 +11,7 @@ class User extends CI_Controller {
      * Index Page for this controller.
      *
      * Maps to the following URL
-     * 		http://example.com/index.php/welcome
+     *     	http://example.com/index.php/welcome
      * 	- or -  
      * 		http://example.com/index.php/welcome/index
      * 	- or -
@@ -89,7 +89,7 @@ class User extends CI_Controller {
             redirect('user/show/' . $user->getId());
         }
 
-        echo $this->twig->render('User/add_new.html.twig', array(
+        echo $this->twig->twig_environment->render('User/add_new.html.twig', array(
         ));
     }
 
@@ -99,7 +99,7 @@ class User extends CI_Controller {
         if (!$user) {
             throw new Exception("Not user found");
         }
-        echo $this->twig->render('User/show.html.twig', array(
+        echo $this->twig->twig_environment->render('User/show.html.twig', array(
             'user' => $user
         ));
     }
@@ -174,7 +174,7 @@ class User extends CI_Controller {
             $em->flush();
             redirect('user/edit/' . $user->getId());
         }
-        echo $this->twig->render('User/edit.html.twig', array(
+        echo $this->twig->twig_environment->render('User/edit.html.twig', array(
             'user' => $user
         ));
     }
@@ -182,7 +182,7 @@ class User extends CI_Controller {
     public function lists() {
         $em = $this->doctrine->em;
         $users = $em->getRepository("models\Entity\User")->findAll();
-        echo $this->twig->render('User/lists.html.twig', array(
+        echo $this->twig->twig_environment->render('User/lists.html.twig', array(
             'users' => $users
         ));
     }
@@ -197,8 +197,10 @@ class User extends CI_Controller {
         $em->flush();
         redirect('user/lists');
     }
+    
+    public function reports(){
+//        $celu = $this->doctrine->em->getRepository('models\Entity\Tbcelu')->find(51);
+        echo $this->twig->twig_environment->render("User/reports.html.twig");
+    }
 
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
